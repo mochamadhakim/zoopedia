@@ -1,0 +1,69 @@
+<!--Header-->
+<%- include('include/_header') %>
+<!--/include header-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoopedia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <!-- Main Site-->
+     <main id="site-main">
+         <div class="container">
+             <div class="box-nav d-flex-justify-between">
+                 <div class="filter">
+                    <a href="/"><i class="fas fa-angle-double-left" style="color: dodgerblue;"><span style="font-family: 'Inter', sans-serif;"> Kembali</span></i></a>
+                 </div>
+             </div>
+             <div class="form-title text-center">
+                 <h2 class="text-dark">Update Data Hewan Baru</h2>
+                 <span class="text-light"> Silahkan mengisi form dibawah untuk update data hewan</span>
+             </div>
+            
+             <!--add user form-->
+             <form method="POST" id="update_hewan">
+                <div class="new_hewan">
+                    <div class="form-group">
+                        <label for="name" class="text-light">Nama Hewan</label>
+                        <input type="hidden" name="id" value="<%= user._id %>">
+                        <input type="text" name="name" value="<%= user.name %>" placeholder="Masukan nama hewan">
+                    </div>
+                    <div class="form-group">
+                           <label for="jenis" class="text-light">Jenis Hewan</label>
+                           <div class="border">
+                           <select id="jenis" name="jenis">
+                               <option value="Malia" <%= user.jenis == 'Mamalia' ? 'checked' : '' %>>Mamalia</option>
+                               <option value="Reptile" <%= user.jenis == 'Reptile' ? 'checked' : '' %>>Reptile</option>
+                               <option value="Amfibi" <%= user.jenis == 'Amfibi' ? 'checked' : '' %>>Amfibi</option>
+                               <option value="Ikan" <%= user.jenis == 'Ikan' ? 'checked' : '' %>>Ikan</option>
+                           </select>
+                       </div>   
+                   </div>
+                   <div class="form-group">
+                       <label for="habitat" class="text-light">Habitat Hewan</label>
+                       <input type="text" name="habitat" value="<%= user.habitat %>" placeholder="Masukan habitat hewan">
+                   </div>
+                   <div class="form-group">
+                       <label for="jumlah" class="text-light">Jumlah Hewan</label>
+                       <input type="number" name="jumlah" value="<%= user.jumlah %>" placeholder="Masukan jumlah hewan">
+                   </div>
+                   <div class="form-group">
+                       <button type="submit" class="btn text-dark update">Save</button>
+                   </div>
+                </div>
+            </form>
+             
+         </div>
+     </main>
+</body>
+</html>
+
+<!--Footer-->
+<%- include('include/_footer') %>
+<!--/include footer-->
